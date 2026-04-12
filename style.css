@@ -57,19 +57,20 @@ img {
 .navbar {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
   z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
-  margin-top: 1rem;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(14px);
-  box-shadow: var(--shadow);
+  min-height: 78px;
 }
 
 .brand {
@@ -95,6 +96,7 @@ img {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.1;
+  color: var(--text);
 }
 
 .brand p {
@@ -105,19 +107,33 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: 1.5rem;
   list-style: none;
 }
 
 .nav-links a {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--muted);
   transition: 0.3s ease;
+  position: relative;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--primary);
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 999px;
 }
 
 .menu-toggle {
@@ -135,7 +151,6 @@ img {
   margin: 5px 0;
   transition: 0.3s ease;
 }
-
 .hero {
   min-height: 100vh;
   position: relative;
@@ -158,10 +173,9 @@ img {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding-top: 9rem;
+  padding-top: 10rem;
   padding-bottom: 5rem;
 }
-
 .eyebrow,
 .section-tag {
   color: var(--gold);
@@ -541,14 +555,18 @@ img {
     z-index: 1001;
   }
 
+  .nav-container {
+    min-height: 74px;
+  }
+
   .nav-links {
     position: absolute;
     top: 78px;
-    right: 0;
+    right: 1rem;
     width: min(280px, 90vw);
     background: rgba(255, 255, 255, 0.98);
     border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 24px;
+    border-radius: 18px;
     padding: 1rem;
     flex-direction: column;
     align-items: flex-start;
