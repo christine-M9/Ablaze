@@ -664,3 +664,41 @@ img {
   margin-bottom: 1.2rem;
   filter: drop-shadow(0 0 22px rgba(125, 211, 252, 0.35));
 }
+.gallery-section {
+  background: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.gallery-grid img {
+  width: 85%;
+  height: 295px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.04);
+}
+/* Tablets */
+@media (max-width: 860px) {
+  .gallery-grid img {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+/* Phones */
+@media (max-width: 560px) {
+  .gallery-grid img {
+    width: 85%;
+    height: 410px;
+  }
+}
